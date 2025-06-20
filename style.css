@@ -14,6 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Inter', sans-serif;
+  color: #ec9f0f7c;
 }
 
 .clock-container {
@@ -27,7 +28,6 @@ body {
   width: 400px;
   max-width: 90vw;
   margin: 0 auto;
-
 }
 
 #clock {
@@ -45,10 +45,16 @@ body {
   box-sizing: border-box;
 }
 
+#date {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #ec9f0f7c;
+}
 
 .location {
   font-size: 18px;
   margin-bottom: 8px;
+  color: #ec9f0f7c;
 }
 
 .weather {
@@ -58,6 +64,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-bottom: 15px;
+  color: #ec9f0f7c;
 }
 
 .weather img {
@@ -91,6 +98,78 @@ body {
   background-color: #e66b0f;
 }
 
+body.dark-mode {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .clock-container {
+  background: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode #clock {
+  color: #ffb74d;
+}
+
+body.dark-mode #date,
+body.dark-mode .location,
+body.dark-mode .weather {
+  color: #ddd;
+}
+
+body.dark-mode #getWeatherBtn {
+  background-color: #ffa726;
+  color: #121212;
+}
+
+body.dark-mode #getWeatherBtn:hover {
+  background-color: #fb8c00;
+}
+
+/* Dark mode toggle styling */
+.dark-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #444;
+  user-select: none;
+  gap: 6px;
+}
+
+body.dark-mode .dark-toggle {
+  color: #ccc;
+}
+
+.dark-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.spinner {
+  border: 3px solid rgba(0,0,0,0.1);
+  border-left-color: #fb7c14;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+body.dark-mode .spinner {
+  border-left-color: #ffa726;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 400px) {
   .clock-container {
     width: 90vw;
@@ -101,4 +180,10 @@ body {
     font-size: 45px;
     min-width: unset;
   }
+}
+
+ body {
+  background-color: #222;
+  color: white;
+  font-family: 'Inter', sans-serif;
 }
