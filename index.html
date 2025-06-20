@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Minimal Digital Clock with Weather</title>
+  <title>Minimal Digital Clock with Weather & Music</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css"/>
 </head>
@@ -29,6 +29,18 @@
 
     <input type="text" id="cityInput" placeholder="Search city" aria-label="City name" />
     <button id="getWeatherBtn">Get Weather</button>
+  </div>
+
+  <!-- Apple Music Playlist Embed -->
+  <div class="music-embed">
+    <iframe
+      allow="autoplay *; encrypted-media *;"
+      frameborder="0"
+      height="450"
+      style="width:100%; max-width:660px; overflow:hidden; background:transparent;"
+      sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+      src="https://embed.music.apple.com/in/playlist/country-music/pl.u-55D6676U6LJWPol"
+    ></iframe>
   </div>
 
   <script src="script.js"></script>
