@@ -11,10 +11,11 @@ body {
   background-size: cover;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Inter', sans-serif;
-  color: #ec9f0f7c;
+  color: #333;
 }
 
 .clock-container {
@@ -40,21 +41,19 @@ body {
   user-select: none;
   font-weight: 500;
   text-align: center;
-  min-width: unset;  
-  width: 100%;       
+  width: 100%;
   box-sizing: border-box;
 }
 
 #date {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #ec9f0f7c;
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #666;
 }
 
 .location {
   font-size: 18px;
   margin-bottom: 8px;
-  color: #ec9f0f7c;
 }
 
 .weather {
@@ -64,7 +63,6 @@ body {
   align-items: center;
   gap: 8px;
   margin-bottom: 15px;
-  color: #ec9f0f7c;
 }
 
 .weather img {
@@ -98,6 +96,7 @@ body {
   background-color: #e66b0f;
 }
 
+/* Dark mode styles */
 body.dark-mode {
   background: #121212;
   color: #f0f0f0;
@@ -112,9 +111,9 @@ body.dark-mode #clock {
   color: #ffb74d;
 }
 
-body.dark-mode #date,
 body.dark-mode .location,
-body.dark-mode .weather {
+body.dark-mode .weather,
+body.dark-mode #date {
   color: #ddd;
 }
 
@@ -149,6 +148,7 @@ body.dark-mode .dark-toggle {
   cursor: pointer;
 }
 
+/* Spinner styles */
 .spinner {
   border: 3px solid rgba(0,0,0,0.1);
   border-left-color: #fb7c14;
@@ -170,6 +170,15 @@ body.dark-mode .spinner {
   }
 }
 
+/* Music embed container */
+.music-embed {
+  margin-top: 30px;
+  max-width: 660px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 400px) {
   .clock-container {
     width: 90vw;
@@ -178,13 +187,5 @@ body.dark-mode .spinner {
 
   #clock {
     font-size: 45px;
-    min-width: unset;
   }
 }
-
- body {
-  background-color: #222;
-  color: white;
-  font-family: 'Inter', sans-serif;
-}
-
