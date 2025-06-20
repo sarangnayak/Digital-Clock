@@ -10,16 +10,39 @@ body {
   background: url('https://images.unsplash.com/photo-1519405530001-3b5e82ba4dac?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-family: 'Inter', sans-serif;
   color: #333;
+  margin: 0;
+  padding: 20px;
+  transition: background-color 0.7s ease, color 0.7s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  transition: background-color 0.7s ease, color 0.7s ease;
 }
 
 .clock-container {
-  background: rgba(255, 255, 255, 0.104);
+  background: rgba(255 255 255, 0.104);
   padding: 40px 60px;
   border-radius: 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
@@ -28,7 +51,11 @@ body {
   text-align: center;
   width: 400px;
   max-width: 90vw;
-  margin: 0 auto;
+  margin: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
 }
 
 #clock {
@@ -43,17 +70,20 @@ body {
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  transition: color 0.5s ease;
 }
 
 #date {
   font-size: 20px;
   margin-bottom: 12px;
   color: #666;
+  transition: color 0.5s ease;
 }
 
 .location {
   font-size: 18px;
   margin-bottom: 8px;
+  transition: color 0.5s ease;
 }
 
 .weather {
@@ -63,6 +93,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-bottom: 15px;
+  transition: color 0.5s ease;
 }
 
 .weather img {
@@ -104,7 +135,7 @@ body.dark-mode {
 
 body.dark-mode .clock-container {
   background: rgba(30, 30, 30, 0.8);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 40px rgba(249, 232, 207, 0.6);
 }
 
 body.dark-mode #clock {
@@ -136,16 +167,43 @@ body.dark-mode #getWeatherBtn:hover {
   color: #444;
   user-select: none;
   gap: 6px;
+  transition: color 0.5s ease;
 }
 
 body.dark-mode .dark-toggle {
   color: #ccc;
 }
 
+/* Custom toggle switch */
 .dark-toggle input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  appearance: none;
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 12px;
+  position: relative;
   cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.dark-toggle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+}
+
+.dark-toggle input[type="checkbox"]:checked {
+  background: #fb7c14;
+}
+
+.dark-toggle input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
 }
 
 /* Spinner styles */
@@ -172,16 +230,109 @@ body.dark-mode .spinner {
 
 /* Music embed container */
 .music-embed {
-  margin-top: 30px;
+  margin-top: 20px;
   max-width: 660px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255 255 255 / 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
-@media (max-width: 400px) {
+body.dark-mode .music-embed {
+  background: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 15px 40px rgba(249, 232, 207, 0.6);
+}
+
+/* Footer styling */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+  user-select: none;
+  transition: color 0.5s ease;
+}
+
+body.dark-mode footer {
+  color: #ccc;
+}
+
+footer .name {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+footer .social-links a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+  color: #fb7c14;
+}
+
+footer .social-links svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* Smooth transitions */
+body,
+.clock-container,
+#clock,
+#date,
+.location,
+.weather,
+#getWeatherBtn {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Focus styles */
+#getWeatherBtn:focus,
+#cityInput:focus,
+.dark-toggle input[type="checkbox"]:focus {
+  outline: 2px solid #fb7c14;
+  outline-offset: 2px;
+}
+
+/* Responsive for smaller widths */
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .music-embed {
+    max-width: 90vw;
+  }
+
   .clock-container {
     width: 90vw;
+  }
+}
+
+/* Smaller screen adjustments */
+@media (max-width: 400px) {
+  .clock-container {
     padding: 30px 20px;
   }
 
