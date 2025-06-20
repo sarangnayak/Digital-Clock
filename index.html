@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minimal Digital Clock with Weather</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="clock-container">
+    <div id="clock">--:--:--</div>
+    <div class="location" id="location">Loading location...</div>
+    <div class="weather">
+      <img id="weather-icon" src="" alt="Weather Icon" style="display:none;" />
+      <div id="weather-desc"></div>
+    </div>
+
+    <input
+      type="text"
+      id="cityInput"
+      placeholder="Enter city name (e.g., London)"
+      aria-label="City name"
+    />
+    <button id="getWeatherBtn">Get Weather</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
