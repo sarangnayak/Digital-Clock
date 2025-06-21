@@ -13,7 +13,6 @@ const body = document.body;
 function updateClock() {
   const now = new Date();
 
-  // Format time
   const time = now.toLocaleTimeString('en-US', {
     hour12: false,
     hour: '2-digit',
@@ -22,7 +21,6 @@ function updateClock() {
   });
   clockEl.textContent = time;
 
-  // Format date
   const date = now.toLocaleDateString('en-GB', {
     day: '2-digit',
     month: '2-digit',
@@ -40,8 +38,7 @@ async function fetchWeather(city) {
   weatherDescEl.textContent = '';
 
   try {
-    // Replace with your own OpenWeatherMap API key
-    const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY';
+    const apiKey = 'ac2dd25c2141409250251ac4aea5801a';
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
         city
@@ -64,37 +61,7 @@ async function fetchWeather(city) {
   }
 }
 
-// Get current city based on geolocation (optional)
-function getCurrentLocationWeather() {
-  if (!navigator.geolocation) {
-    locationEl.textContent = 'Geolocation not supported';
-    return;
-  }
-
-  navigator.geolocation.getCurrentPosition(
-    async (position) => {
-      const { latitude, longitude } = position.coords;
-      try {
-        // Reverse geocode to get city name
-        const response = await fetch(
-          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
-        );
-        const data = await response.json();
-        const city = data.address.city || data.address.town || data.address.village || data.address.county;
-
-        locationEl.textContent = city ? city : 'Location Unknown';
-        fetchWeather(city);
-      } catch {
-        locationEl.textContent = 'Unable to get location name';
-      }
-    },
-    () => {
-      locationEl.textContent = 'Location permission denied';
-    }
-  );
-}
-
-// Dark mode toggle handler
+// Dark mode toggle
 darkModeToggle.addEventListener('change', () => {
   body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
   if (darkModeToggle.checked) {
@@ -104,7 +71,7 @@ darkModeToggle.addEventListener('change', () => {
   }
 });
 
-// Weather button click
+// Button click: Get weather
 getWeatherBtn.addEventListener('click', () => {
   const city = cityInput.value.trim();
   if (city) {
@@ -113,7 +80,17 @@ getWeatherBtn.addEventListener('click', () => {
   }
 });
 
-// Initialize
+// Press Enter in input: Get weather
+cityInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const city = cityInput.value.trim();
+    if (city) {
+      locationEl.textContent = city;
+      fetchWeather(city);
+    }
+  }
+});
+
+// Init clock
 updateClock();
 setInterval(updateClock, 1000);
-getCurrentLocationWeather();
