@@ -7,7 +7,7 @@
 }
 
 body {
-  background: url('https://images.unsplash.com/photo-1519405530001-3b5e82ba4dac?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+  background: url('images/green planet.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   font-family: 'Inter', sans-serif;
@@ -42,7 +42,7 @@ body {
 }
 
 .clock-container {
-  background: rgba(255 255 255, 0.104);
+  background: rgba(255, 255, 255, 0.104);
   padding: 40px 60px;
   border-radius: 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
@@ -208,7 +208,7 @@ body.dark-mode .dark-toggle {
 
 /* Spinner styles */
 .spinner {
-  border: 3px solid rgba(0,0,0,0.1);
+  border: 3px solid rgba(0, 0, 0, 0.1);
   border-left-color: #fb7c14;
   border-radius: 50%;
   width: 24px;
@@ -237,7 +237,7 @@ body.dark-mode .spinner {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(255 255 255 / 0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
@@ -340,4 +340,3 @@ body,
     font-size: 45px;
   }
 }
-
