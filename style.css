@@ -102,8 +102,9 @@ body {
 }
 
 #cityInput {
-  width: calc(100% - 20px);
-  padding: 8px 10px;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
   border: none;
   border-radius: 6px;
   font-size: 16px;
