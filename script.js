@@ -9,10 +9,9 @@ const getWeatherBtn = document.getElementById('getWeatherBtn');
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 
-// OpenWeatherMap API key (CRITICAL: For a real app, use a server-side proxy)
+
 const API_KEY = 'ac2dd25c2141409250251ac4aea5801a';
 
-// Update clock every second
 function updateClock() {
     const now = new Date();
     const time = now.toLocaleTimeString('en-US', {
@@ -23,13 +22,11 @@ function updateClock() {
     });
     clockEl.textContent = time;
 
-    // A more robust way to format the date, ensuring consistency across environments
     const dateOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
     const date = new Intl.DateTimeFormat('en-GB', dateOptions).format(now);
     dateEl.textContent = date;
 }
 
-// Fetch weather by city name
 async function fetchWeatherByCity(city) {
     if (!city) return;
 
@@ -61,7 +58,6 @@ async function fetchWeatherByCity(city) {
     }
 }
 
-// Fetch weather by user's location
 function fetchWeatherByLocation() {
     if (navigator.geolocation) {
         locationEl.textContent = 'Getting your location...';
@@ -73,8 +69,7 @@ function fetchWeatherByLocation() {
                     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
                 );
                 const data = await response.json();
-                
-                // Update the UI with the current city name
+            
                 locationEl.textContent = data.name;
                 weatherIconEl.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
                 weatherIconEl.alt = data.weather[0].description;
@@ -96,18 +91,18 @@ function fetchWeatherByLocation() {
             fetchWeatherByCity('Gurugram'); // Fallback on error
         });
     } else {
-        // Geolocation not supported, use default city
+        
         fetchWeatherByCity('Gurugram');
     }
 }
 
-// Dark mode toggle
+
 darkModeToggle.addEventListener('change', () => {
     body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
     body.classList.toggle('dark-mode', darkModeToggle.checked);
 });
 
-// Event listeners for fetching weather
+
 getWeatherBtn.addEventListener('click', () => {
     const city = cityInput.value.trim();
     if (city) {
@@ -124,7 +119,6 @@ cityInput.addEventListener('keypress', (e) => {
     }
 });
 
-// Init
 updateClock();
 setInterval(updateClock, 1000);
 fetchWeatherByLocation(); // Fetch weather on page load
