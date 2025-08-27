@@ -1,36 +1,23 @@
-/*
- * Minimal Digital Clock with Weather & Music
- *
- * This stylesheet is organized into logical sections to improve readability and maintenance.
- * It uses CSS custom properties (variables) for easy theme customization.
- */
-
-/* ================== */
-/* Global Variables   */
-/* ================== */
 :root {
     --text-color: #333;
     --text-color-light: #000000;
     --bg-color-light: #fff;
     --primary-accent: #fb7c14;
     --primary-accent-hover: #e66b0f;
-    --container-bg-light: rgba(255, 255, 255, 0.104);
+    --container-bg-light: rgba(255, 255, 255, 0.2);
     --container-shadow-light: rgba(0, 0, 0, 0.2);
-    --clock-color: #ec9f0f7c;
+    --clock-color: #333;
 
     /* Dark mode variables */
     --bg-color-dark: #121212;
     --text-color-dark: #f0f0f0;
     --container-bg-dark: rgba(30, 30, 30, 0.8);
-    --container-shadow-dark: rgba(249, 232, 207, 0.6);
+    --container-shadow-dark: rgba(249, 232, 207, 0.1);
     --dark-mode-accent: #ffa726;
     --dark-mode-accent-hover: #fb8c00;
     --dark-mode-clock-color: #ffb74d;
 }
 
-/* ================== */
-/* Base & Background  */
-/* ================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
 * {
@@ -50,10 +37,9 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden; /* Prevent body overflow from video */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Video Background styles */
 #background-video {
     position: fixed;
     right: 0;
@@ -62,24 +48,9 @@ body {
     min-height: 100%;
     z-index: -1;
     object-fit: cover;
+    transition: opacity 0.5s ease;
 }
 
-/* Fallback for browsers that don't support video or video fails to load */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    background: url('https://images.unsplash.com/photo-1727363584291-433dcd86a0fa?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
-    background-size: cover;
-}
-
-/* ================== */
-/* Layout Containers  */
-/* ================== */
 .wrapper {
     display: flex;
     justify-content: center;
@@ -102,15 +73,14 @@ body::before {
 
 .clock-container {
     background: var(--container-bg-light);
-    padding: 2.5rem 3.75rem;
+    padding: 2.5rem;
     border-radius: 1.25rem;
     box-shadow: 0 1rem 2rem var(--container-shadow-light);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     text-align: center;
-    width: 25rem;
-    max-width: 90vw;
-    margin-top: 1.25rem;
+    width: 100%; /* Allow it to be flexible */
+    max-width: 25rem; /* But don't let it get too wide */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -118,9 +88,8 @@ body::before {
 }
 
 .music-embed {
-    margin-top: 1.25rem;
-    max-width: 41.25rem;
-    width: 100%;
+    width: 100%; 
+    max-width: 41.25rem; 
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -134,16 +103,13 @@ body::before {
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* ================== */
-/* Clock & Weather    */
-/* ================== */
+
 #clock {
     font-size: 3.75rem;
     color: var(--clock-color);
     letter-spacing: 2px;
     white-space: nowrap;
     margin-bottom: 0.625rem;
-    padding: 0 0.9375rem;
     user-select: none;
     font-weight: 500;
     text-align: center;
@@ -224,9 +190,6 @@ body::before {
     }
 }
 
-/* ================== */
-/* Dark Mode Toggle   */
-/* ================== */
 .dark-toggle {
     display: flex;
     align-items: center;
@@ -270,16 +233,8 @@ body::before {
     transform: translateX(1.25rem);
 }
 
-/* ================== */
-/* Dark Mode States   */
-/* ================== */
 body.dark-mode {
-    background: var(--bg-color-dark);
     color: var(--text-color-dark);
-}
-
-body.dark-mode::before {
-    display: none; /* Hide the fallback image when in dark mode */
 }
 
 body.dark-mode .clock-container {
@@ -295,7 +250,8 @@ body.dark-mode #date,
 body.dark-mode .location,
 body.dark-mode .weather,
 body.dark-mode .dark-toggle,
-body.dark-mode footer {
+body.dark-mode footer p, 
+body.dark-mode .social-links a {
     color: var(--text-color-dark);
 }
 
@@ -321,9 +277,6 @@ body.dark-mode .music-embed {
     box-shadow: 0 1rem 2.5rem var(--container-shadow-dark);
 }
 
-/* ================== */
-/* Footer             */
-/* ================== */
 footer {
     margin-top: 2.5rem;
     text-align: center;
@@ -337,49 +290,54 @@ footer .social-links {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 footer .social-links a {
     color: inherit;
     text-decoration: none;
     transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 footer .social-links a:hover {
     color: var(--primary-accent);
 }
 
-footer .social-links svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: currentColor;
-    vertical-align: middle;
-}
-
-/* ================== */
-/* Responsive Design  */
-/* ================== */
 @media (max-width: 900px) {
+    body {
+        
+        height: auto;
+        padding: 1rem; 
+    }
+
     .main-container {
+       
         flex-direction: column;
         align-items: center;
         gap: 1.875rem;
     }
-}
-
-@media (max-width: 400px) {
+    
     .clock-container {
-        padding: 1.875rem 1.25rem;
+        padding: 1.5rem; 
     }
-
+    
     #clock {
-        font-size: 2.8125rem;
+        font-size: 2.8rem; 
+    }
+    
+    .music-embed {
+        
+        height: 280px; 
+    }
+    
+    .music-embed iframe {
+        height: 100%;
     }
 }
 
-/* ================== */
-/* Accessibility & UX */
-/* ================== */
 #getWeatherBtn:focus,
 #cityInput:focus,
 .dark-toggle input[type="checkbox"]:focus {
