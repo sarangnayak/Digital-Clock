@@ -10,7 +10,7 @@
 /* ================== */
 :root {
     --text-color: #333;
-    --text-color-light: #180909;
+    --text-color-light: black;
     --bg-color-light: #fff;
     --primary-accent: #fb7c14;
     --primary-accent-hover: #e66b0f;
