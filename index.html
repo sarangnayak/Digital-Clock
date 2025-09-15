@@ -1,49 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic metadata and page setup -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minimal Digital Clock with Weather & Music 🎧</title>
+
+    <!-- Google font: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
-   
+    <!-- External stylesheet -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     
+    <!-- Background video -->
     <video id="background-video" autoplay muted playsinline>
-     
       <source src="bg image/bgvideo1.mp4" type="video/mp4">
+      <!-- Message if video not supported -->
       Your browser does not support the video tag.
     </video>
 
+    <!-- Wrapper for main content -->
     <div class="wrapper">
         <div class="main-container">
+
+            <!-- Digital clock and weather container -->
             <div class="clock-container">
-               
+                
+                <!-- Dark mode toggle button -->
                 <label class="dark-toggle">
                     <input type="checkbox" id="darkModeToggle" />
                     <span>Dark Mode</span>
                 </label>
         
+                <!-- Clock display -->
                 <div id="clock">--:--:--</div>
+
+                <!-- Date display -->
                 <div id="date">--/--/----</div>
         
-              
+                <!-- Location name will be shown here -->
                 <div class="location" id="location"></div>
         
+                <!-- Weather information -->
                 <div class="weather">
+                    <!-- Spinner (loading icon) -->
                     <div id="spinner" class="spinner" style="display:none;"></div>
+                    <!-- Weather icon -->
                     <img id="weather-icon" src="" alt="Weather Icon" style="display:none;" />
+                    <!-- Weather description (e.g., Cloudy, Sunny) -->
                     <div id="weather-desc"></div>
                 </div>
         
+                <!-- Input to search for a city -->
                 <input type="text" id="cityInput" placeholder="Search city" aria-label="City name" />
+                <!-- Button to fetch weather -->
                 <button id="getWeatherBtn">Get Weather</button>
             </div>
         
-           
+            <!-- Apple Music embed player -->
             <div class="music-embed">
                 <iframe
                     allow="autoplay *; encrypted-media *;"
@@ -57,19 +76,22 @@
         </div>
     </div>
         
+    <!-- Footer section -->
     <footer>
         <p>Designed and Developed by Sarang Nayak</p>
         <div class="social-links">
+            <!-- LinkedIn link -->
             <a href="https://www.linkedin.com/in/sarangnayak" target="_blank" aria-label="LinkedIn">
                 <i class="fa-brands fa-linkedin"></i> Linkedin
             </a>
+            <!-- GitHub link -->
             <a href="https://www.linkedin.com/in/nayaksarang/" target="_blank" aria-label="GitHub">
                 <i class="fa-brands fa-github"></i> GitHub
             </a>
         </div>
     </footer>
 
-   
+    <!-- External JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
