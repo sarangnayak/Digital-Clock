@@ -56,4 +56,38 @@ cd Digital-Clock
 2.	Open index.html in your browser
 3.	(Optional) Modify styles or add features
 4.	Deploy via GitHub Pages or your preferred host
+---
+🧩 Customization Ideas
+	•	Add AM / PM toggle or switch between 12h/24h
+	•	Show date & day of week
+	•	Add themes (dark / light)
+	•	Add animations for transitions (CSS or JS)
+	•	Add alarm / timer functionality
 
+⸻
+
+🤝 Contributing
+
+Contributions are welcome!
+	•	Fork the repo
+	•	Make your changes in a feature branch
+	•	Open a Pull Request
+
+⸻
+
+📜 License
+
+This project is licensed under the MIT License.
+See the LICENSE file for details.
+
+⸻
+
+👤 Author
+
+Sarang Nayak
+🔗 GitHub
+🌐 Portfolio
+
+⸻
+
+⭐ Star this repo if you find it useful!
