@@ -9,7 +9,7 @@
 ---
 
 ## 🌐 Live Demo  
-*(Include your hosted demo link here, if available)*  
+*(https://github.com/sarangnayak/Digital-Clock)*  
 
 ---
 
