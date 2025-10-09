@@ -47,3 +47,9 @@ Digital-Clock/
 ├── script.js         # Time update logic  
 └── assets/            # Images, icons, previews
 ```
+🚀 Usage / Setup
+	1.	Clone the repository
+  ```
+git clone https://github.com/sarangnayak/Digital-Clock.git
+cd Digital-Clock
+```
