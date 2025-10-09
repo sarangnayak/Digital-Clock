@@ -15,7 +15,7 @@
 
 ## 🖼️ Preview
 
-(./preview.png)  
+!(./preview.png)  
 
 ![Digital Clock Preview](./preview1.png) 
 *(Place a screenshot of your clock UI in `assets/preview.png` so it shows here)*
