@@ -48,8 +48,12 @@ Digital-Clock/
 └── assets/            # Images, icons, previews
 ```
 🚀 Usage / Setup
-	1.	Clone the repository
+1.	Clone the repository
   ```
 git clone https://github.com/sarangnayak/Digital-Clock.git
 cd Digital-Clock
 ```
+2.	Open index.html in your browser
+3.	(Optional) Modify styles or add features
+4.	Deploy via GitHub Pages or your preferred host
+
